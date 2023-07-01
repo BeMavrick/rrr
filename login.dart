@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class mylogin extends StatefulWidget {
-  mylogin({super.key});
+  const mylogin({super.key});
 
   @override
   State<mylogin> createState() => _myloginState();
@@ -80,7 +80,8 @@ class _myloginState extends State<mylogin> {
     backgroundColor: Colors.blue,
     child: IconButton(
     onPressed: (){
-      Navigator.pushNamed(context, 'rrr');
+      performLogin(context);
+      // Navigator.pushNamed(context, 'rrr');
     },
     icon: Icon(Icons.arrow_forward),
     ),
@@ -124,6 +125,7 @@ class _myloginState extends State<mylogin> {
             duration: Duration(seconds: 10),
             backgroundColor: Colors.green,
             content: Text('Login Success')));
+        Navigator.pushNamed(context, 'profile');
       }
     }
     on FirebaseAuthException catch (errormessage) {
